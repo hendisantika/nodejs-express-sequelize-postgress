@@ -15,4 +15,9 @@ User.associate = function (models) {
         foreignKey: 'user_id',
         as: 'profile',
     });
+    User.belongsToMany(models.Role, {
+        through: 'UserRole',
+        as: 'roles',
+        foreignKey: 'user_id'
+    });
 };
