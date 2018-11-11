@@ -9,3 +9,10 @@ module.exports = (sequelize, DataTypes) => {
     };
     return User;
 };
+
+User.associate = function (models) {
+    User.hasOne(models.Profile, {
+        foreignKey: 'user_id',
+        as: 'profile',
+    });
+};
