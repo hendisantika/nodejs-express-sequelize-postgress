@@ -11,3 +11,9 @@ module.exports = (sequelize, DataTypes) => {
     };
     return Branch;
 };
+
+Branch.associate = function (models) {
+    Branch.belongsTo(models.Company, {
+        foreignKey: 'company_id'
+    });
+};
